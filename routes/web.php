@@ -21,7 +21,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     Route::get('posts'          , ['as' => 'admin.posts.index' , 'uses' => 'AdminPostsController@index']);
     Route::get('posts/create'   , ['as' => 'admin.posts.create', 'uses' => 'AdminPostsController@create']);
-
+    //單元練習< 練習6-4> 設定更新所需的 Route
+    Route::patch('posts/{id}',    ['as' => 'admin.posts.update', 'uses' => 'AdminPostsController@update']);
     //單元練習< 練習4-3> 開啟新增的Route
     Route::post('posts',['as'=>'admin.posts.store','uses'=> 'AdminPostsController@store']);
 
