@@ -21,11 +21,13 @@ class AdminPostsController extends Controller
         return view('admin.posts.create');
     }
 
+
+    //單元練習< 練習6-1>  在 PostsController的 edit內取得舊資料
     public function edit($id)
     {
-        $data = ['id' => $id];
-
-        return view('admin.posts.edit', $data);
+        $post=Post::find($id);
+        $data=['post'=>$post];
+        return view('admin.posts.edit',$data);
     }
 
 
