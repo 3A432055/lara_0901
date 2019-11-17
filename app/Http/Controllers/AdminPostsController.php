@@ -30,8 +30,10 @@ class AdminPostsController extends Controller
 
 
 //單元練習< 練習4-4> 設定 AdminPostsController對應的 function
-    public function store()
+//單元練習< 練習5-1> 將表單送過來的資料用 Model 寫入資料庫
+    public function store(Request$request)
     {
-
+        Post::create($request->all());
+        return redirect()->route('admin.posts.index');
     }
 }
