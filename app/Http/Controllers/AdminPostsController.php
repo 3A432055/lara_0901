@@ -47,4 +47,13 @@ class AdminPostsController extends Controller
         Post::create($request->all());
         return redirect()->route('admin.posts.index');
     }
+
+    //單元練習< 練習7-3> 在 PostsController的 destroy內刪除資料
+    public function destroy($id)
+    {
+        Post::destroy($id);
+        return redirect()->route('admin.posts.index');
+    }
+
+
 }
