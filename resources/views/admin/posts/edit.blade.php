@@ -16,32 +16,38 @@
             </ol>
         </div>
     </div>
+
     <!-- /.row -->
-    <!--單元練習< 練習3-1> 編輯 create.blade.php 及 edit.blade.php-->
-    <!--單元練習< 練習4-2> 將錯誤訊息區塊做成樣板-->
     @include('admin.layouts.partials.validation')
+
     <!-- /.row -->
-    <!--單元練習< 練習6-2>  修改 edit.blade.php表單-->
     <div class="row">
         <div class="col-lg-12">
+            <!--<form role="form">-->
             <form action="/admin/posts/{{$post->id}}" method="POST" role="form">
-                {{ csrf_field() }}
+            {{ csrf_field() }}
+            <!--輔助函數，並告知server 端表單 request method 為 PATCH -->
                 {{ method_field('PATCH') }}
 
                 <div class="form-group">
                     <label>標題：</label>
+                    <!--<input class="form-control" placeholder="請輸入文章標題">-->
                     <input name="title" class="form-control" placeholder="請輸入文章標題" value="{{$post->title}}">
                 </div>
 
                 <div class="form-group">
                     <label>內容：</label>
+                    <!--<textarea class="form-control" rows="10"></textarea>-->
                     <textarea name="content" class="form-control" rows="10">{{$post->content}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label>精選？</label>
+                    <!--<select class="form-control">-->
                     <select name="is_feature" class="form-control" >
+                        <!--<option value="0">否</option>-->
                         <option value="0" {{ $post->is_feature?'':'SELECTED' }}>否</option>
+                        <!--<option value="1">是</option>-->
                         <option value="1" {{ $post->is_feature?'SELECTED':'' }}>是</option>
                     </select>
                 </div>
